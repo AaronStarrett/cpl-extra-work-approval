@@ -10,8 +10,9 @@ if (local?.vars?.ENVIRONMENT !== 'local' || !localDatabase ||
 }
 const run = (entry, args) => execFileSync(process.execPath, [entry, ...args], { stdio: 'inherit' });
 const wrangler = 'node_modules/wrangler/bin/wrangler.js';
-run(wrangler, ['d1', 'migrations', 'apply', 'DB', '--local', '--env', 'local']);
-// Repeated release gates share a local preview. Reset only its synthetic-test
-// quota metadata; preserve drafts and decisions. No remote operation is accepted.
-run(wrangler, ['d1', 'execute', 'DB', '--local', '--env', 'local', '--command', 'DELETE FROM rate_limits']);
+const localState = ['--local', '--env', 'local', '--persist-to', '.local/browser-state'];
+run(wrangler, ['d1', 'migrations', 'apply', 'DB', ...localState]);
+// Browser suites use their own local state and fresh server. Reset only synthetic
+// quota metadata between runs; no remote operation is accepted.
+run(wrangler, ['d1', 'execute', 'DB', ...localState, '--command', 'DELETE FROM rate_limits']);
 run('node_modules/@playwright/test/cli.js', ['test']);

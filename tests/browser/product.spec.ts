@@ -6,7 +6,7 @@ import { randomUUID } from 'node:crypto';
 import sample from '../../portfolio-handoff/staging/fictional-fencing-request.json' with { type: 'json' };
 import type { DraftInput, OwnerRequest, ReviewRecord } from '../../shared/domain';
 
-const origin = 'http://localhost:4173';
+const origin = 'http://localhost:4174';
 const headers = { Origin: origin, 'X-CPL-Request': '1', 'Content-Type': 'application/json' };
 const assets = path.resolve('portfolio-handoff/assets');
 const qa = path.resolve('.local/qa');
