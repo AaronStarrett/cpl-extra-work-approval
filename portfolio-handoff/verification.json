@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-09-06",
+  "portfolio": {
+    "repositoryUrl": "https://github.com/AaronStarrett/cpl-portfolio",
+    "verifiedRemoteMainCommit": "6978d7fa1cfcbd52b1b85b54256f7feea979f6ae",
+    "sourceVerification": "Read-only git ls-remote and source reads pinned to the resolved main commit",
+    "filesRead": [
+      "docs/MAINTENANCE.md",
+      "src/data/schema.ts",
+      "src/data/stories.ts",
+      "src/pages/projects/[slug].astro",
+      "src/components/ProjectCard.astro",
+      "package.json"
+    ],
+    "integration": "NOT INTEGRATED - shared portfolio read-only by owner instruction",
+    "stagingEntryValidation": "PASS - strict projectSchema from verified remote commit parsed staging entry with no issues",
+    "storyTypeValidation": "PASS - TypeScript checked three handoff story configurations against Story and Scene types from verified remote commit in ignored local copy"
+  },
+  "application": {
+    "deployedUrl": null,
+    "repositoryUrl": "https://github.com/AaronStarrett/cpl-extra-work-approval",
+    "repositoryPublicVerified": true,
+    "deployedCommit": null,
+    "workerVersion": null,
+    "gitTriggeredBuild": "NOT CONFIGURED - owner selected scoped manual CLI deployment",
+    "twoBrowserSmoke": "LOCAL PASS - 8 browser tests against actual Workers/D1, including independent owner/customer/stranger contexts; DEPLOYED NOT RUN",
+    "status": "Locally verified. Public repo created. Owner authorized scoped manual CLI deployment; actual upload and deployed smoke results pending."
+  },
+  "captures": [
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-changes.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-composer.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-confirm.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-copy-confirmation.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-customer-phone.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-declined.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-ledger.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-preview.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    },
+    {
+      "captureDate": "2026-09-06",
+      "publicData": "Synthetic only; no management/customer bearer tokens; private owner note absent from customer captures",
+      "file": "extra-work-approval-receipt.png",
+      "scenario": "fictional fencing request",
+      "origin": "local Workers/D1 application"
+    }
+  ],
+  "stagingEntry": "staging/project-entry.json",
+  "releaseReady": false
+}

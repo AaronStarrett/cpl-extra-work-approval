@@ -1,0 +1,47 @@
+.ewa-walkthrough {
+  --ewa-paper: #f5f1e8;
+  --ewa-ink: #242a2e;
+  --ewa-copper: #a14426;
+  color: var(--ewa-ink);
+}
+.ewa-sample-note {
+  max-width: 76ch;
+  margin: 0 0 1rem;
+  color: var(--ewa-ink);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.ewa-branches { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.ewa-branches button {
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  border: 1px solid #766d5e;
+  border-radius: 3px;
+  color: var(--ewa-ink);
+  background: var(--ewa-paper);
+  transition: background-color 200ms, color 200ms;
+}
+.ewa-branches button[aria-pressed="true"] { color: #fff; background: var(--ewa-ink); border-color: var(--ewa-ink); }
+.ewa-branches button:focus-visible { outline: 3px solid var(--ewa-copper); outline-offset: 3px; }
+.ewa-walkthrough .generic-scene {
+  background: var(--ewa-paper);
+  color: var(--ewa-ink);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  min-height: 360px;
+  border-top: 3px solid var(--ewa-copper);
+}
+.ewa-walkthrough .generic-scene h3 { max-width: 24ch; margin: 0.75rem 0 1.5rem; font-family: Georgia, serif; letter-spacing: -0.025em; }
+.ewa-walkthrough .generic-scene .eyebrow { color: var(--ewa-copper); }
+.ewa-walkthrough .generic-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+.ewa-walkthrough .generic-flow > div { background: transparent; color: var(--ewa-ink); border: 0; border-left: 1px solid #9a9182; border-radius: 0; padding: 1rem 1.25rem; box-shadow: none; min-width: 0; }
+.ewa-walkthrough .generic-flow > div > b { display: block; color: var(--ewa-copper); margin-bottom: 0.8rem; font-variant-numeric: tabular-nums; }
+.ewa-walkthrough .generic-flow > div > strong { display: block; line-height: 1.5; overflow-wrap: anywhere; }
+.ewa-walkthrough .generic-flow > div > span { display: none; }
+@media (max-width: 650px) {
+  .ewa-walkthrough .generic-flow { grid-template-columns: 1fr; }
+  .ewa-walkthrough .generic-flow > div { padding: 0.75rem 1rem; border-left: 0; border-top: 1px solid #9a9182; }
+  .ewa-walkthrough .generic-scene { min-height: 390px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ewa-walkthrough *, .ewa-walkthrough *::before, .ewa-walkthrough *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,81 @@
+{
+  "slug": "extra-work-approval",
+  "title": "Extra Work Approval",
+  "summary": "Agree on the extra work before it starts. A focused scope, additional price, customer response, and versioned record for the contractor's next change request.",
+  "category": "Trade workflow",
+  "tags": [
+    "Scope approval",
+    "Private review",
+    "Versioned records"
+  ],
+  "featuredOrder": 6,
+  "platform": "GitHub App",
+  "maturity": "Locally verified application · deployment pending",
+  "presentation": "animated-story",
+  "story": "extra-work-approval",
+  "problem": "A customer's while-you-are-here request can leave extra scope, added cost and timing scattered across a conversation before either person has a clear record.",
+  "contribution": "Aaron defined a narrow contractor-to-customer workflow and directed the product's private access boundary, immutable versions, response clarity and distinctive work-order notebook design.",
+  "solution": "The contractor prepares one change request with scope, price and declared timing, publishes a private review link, and keeps the customer's response connected to that exact version.",
+  "outcomes": [
+    "A fresh synthetic request passed the real local composer, private-link publication, independent customer approval, owner refresh and exact-version export workflow.",
+    "Independent declined and changes-requested flows persisted their own final outcomes without approval."
+  ],
+  "showEvidenceSection": false,
+  "technologies": [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Cloudflare Workers",
+    "Cloudflare D1"
+  ],
+  "architecture": [
+    "Blank work-order composer",
+    "Private owner workspace",
+    "Immutable published version",
+    "Scoped customer response",
+    "Version history and export"
+  ],
+  "screenshots": [
+    {
+      "alt": "Fictional fencing request in the Extra Work Approval work-order composer",
+      "src": "/images/extra-work-approval-composer.png",
+      "caption": "Original local application capture: a fictional $350 side-gate request with one additional working day."
+    },
+    {
+      "alt": "Read-only customer preview with additional scope, price, exclusions and timing",
+      "src": "/images/extra-work-approval-preview.png",
+      "caption": "Original local application capture: the read-only preview keeps scope, $350 additional and timing together."
+    },
+    {
+      "alt": "Private customer phone document showing all three response choices",
+      "src": "/images/extra-work-approval-customer-phone.png",
+      "caption": "Original local application capture: the fictional customer can approve, request changes or decline."
+    },
+    {
+      "alt": "Server-recorded approval receipt for a fictional side-gate version",
+      "src": "/images/extra-work-approval-receipt.png",
+      "caption": "Synthetic local Workers/D1 verification: the committed approval stays with version 1. This is fictional customer data."
+    },
+    {
+      "alt": "Private contractor ledger showing the stored synthetic approval",
+      "src": "/images/extra-work-approval-ledger.png",
+      "caption": "Original local application capture: the owner refreshed the ledger and exported the same stored response."
+    },
+    {
+      "alt": "Fictional declined customer response attached to the published request",
+      "src": "/images/extra-work-approval-declined.png",
+      "caption": "Synthetic local Workers/D1 verification: Declined is recorded without granting approval."
+    },
+    {
+      "alt": "Fictional customer change request asking for a latch accessible from both sides",
+      "src": "/images/extra-work-approval-changes.png",
+      "caption": "Synthetic local Workers/D1 verification: a requested change is recorded; a revised version needs a fresh decision."
+    }
+  ],
+  "access": "unverified",
+  "launchMode": "new-tab",
+  "embedAllowed": false,
+  "verificationDate": "2026-09-06",
+  "repositoryUrl": "https://github.com/AaronStarrett/cpl-extra-work-approval",
+  "repositoryPublic": true
+}

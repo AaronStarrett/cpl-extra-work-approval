@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","compilerOptions":{"lib":["ES2022"],"types":["node","@cloudflare/workers-types","@cloudflare/vitest-pool-workers/types"]},"include":["worker","shared","tests/integration","tests/env.d.ts","vitest.integration.config.ts"]}

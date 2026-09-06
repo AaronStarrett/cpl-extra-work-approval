@@ -1,0 +1,20 @@
+{
+  "businessName": "Juniper Fence Co. (fictional)",
+  "businessContact": "office@example.invalid",
+  "customerName": "Morgan Example (fictional)",
+  "customerContact": "",
+  "jobTitle": "Garden fence · additional side gate",
+  "jobReference": "FENCE-104",
+  "serviceAddress": "Fictional job FENCE-104 · east garden boundary",
+  "reason": "The customer asked for a side gate to make garden access easier while the fence work is underway.",
+  "scope": "Add one matching timber side gate in the agreed opening on the east garden boundary. Supply and install the gate, hinges and a standard latch; check that the gate opens and closes freely.",
+  "includedWork": "One timber gate, hinges, standard latch, installation and removal of offcuts from this additional work.",
+  "exclusions": "No powered opener, lock installation, painting, or changes to the remaining fence are included in this additional request.",
+  "lineItems": [{"description": "Supply and install one matching timber side gate", "quantity": 1, "unitPriceCents": 35000}],
+  "taxCents": 0,
+  "zeroCostConfirmed": false,
+  "schedule": {"kind": "impact", "details": "One additional working day for the side-gate work."},
+  "terms": "",
+  "privateNotes": "Fictional owner-only test note. This text must never appear in customer views, customer exports, or public captures.",
+  "linkedRequestId": null
+}

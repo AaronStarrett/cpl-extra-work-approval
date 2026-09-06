@@ -1,0 +1,52 @@
+{
+  "name": "cpl-extra-work-approval",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.worker.json --noEmit",
+    "test": "vitest run --config vitest.config.ts",
+    "test:unit": "npm test",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:browser": "playwright test",
+    "build": "vite build",
+    "preview": "wrangler dev --env local --ip 127.0.0.1 --port 4173",
+    "db:local": "wrangler d1 migrations apply DB --local --env local",
+    "verify": "npm run lint && npm run typecheck && npm test && npm run test:integration && npm run build && npm run test:browser && node scripts/security-check.mjs",
+    "deploy": "npm run verify && node scripts/deploy.mjs",
+    "deploy:builds": "node scripts/builds-policy.mjs && npm run browser:install && npm run verify && node scripts/deploy.mjs",
+    "prepare": "node scripts/install-hooks.mjs",
+    "browser:install": "playwright install --with-deps chromium"
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "5.3.0",
+    "@fontsource/ibm-plex-sans": "5.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.5.4",
+    "lucide-react": "1.41.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@cloudflare/vitest-pool-workers": "0.22.0",
+    "@cloudflare/workers-types": "5.20260906.1",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.63.0",
+    "@types/node": "26.4.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "eslint": "10.10.0",
+    "globals": "17.12.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.69.0",
+    "vite": "8.2.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.129.0"
+  }
+}
