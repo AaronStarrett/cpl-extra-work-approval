@@ -161,8 +161,16 @@ async function api(request:Request,env:Env):Promise<Response>{
     }
     throw new HttpError(404,'Record unavailable.','not_found');
   }
+  if(path==='/api/session'&&method==='GET'){
+    try{const current=await owner(request,env);return json({workspace:workspace(current),csrf:'1'});}
+    catch(error){
+      // A verified invalid session must not strand the blank composer behind an
+      // obsolete cookie. Storage failures propagate without clearing access.
+      if(error instanceof HttpError&&error.status===401)return json({error:error.message,code:error.code},401,{'Set-Cookie':cookie('cpl_owner','','/api',0)});
+      throw error;
+    }
+  }
   const w=await owner(request,env);
-  if(path==='/api/session'&&method==='GET')return json({workspace:workspace(w),csrf:'1'});
   if(path==='/api/settings'&&method==='PUT'){const settings=await body(request,settingsSchema);await ownerWrite(request,env,w.id,env.DB.prepare('UPDATE workspaces SET settings_json=? WHERE id=?').bind(JSON.stringify(settings),w.id));return json({workspace:{...workspace(w),settings}});}
   if(path==='/api/recovery/rotate'&&method==='POST'){await body(request,z.object({}).strict());const recovery=token();await ownerWrite(request,env,w.id,env.DB.prepare('UPDATE workspaces SET recovery_hash=? WHERE id=?').bind(await hash(recovery),w.id));return json({managementLink:`${url.origin}/recover#${recovery}`});}
   if(path==='/api/sessions/revoke'&&method==='POST'){await body(request,z.object({}).strict());await ownerWrite(request,env,w.id,env.DB.prepare('DELETE FROM owner_sessions WHERE workspace_id=?').bind(w.id));return json({ok:true},200,{'Set-Cookie':cookie('cpl_owner','','/api',0)});}
