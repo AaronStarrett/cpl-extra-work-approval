@@ -4,7 +4,7 @@
 
 A focused tool for a contractor's “while you're here” request: write the extra scope, additional price and timing, publish a private customer-review link, record the response to that exact version, and export the record. The first visit opens a blank composer. No account signup or AI key is needed.
 
-Current release state: **implemented and locally verified; deployment pending**. [Public source repository](https://github.com/AaronStarrett/cpl-extra-work-approval). The local suite recorded 8 domain, 40 Workers/D1 integration, and 8 browser tests passing. See [Deployment](docs/DEPLOYMENT.md) for the owner's selected manual release path and [QA](docs/QA.md) for the exact evidence. There is no verified public product URL yet.
+Current release state: **deployed; synthetic production approval workflow verified**. [Open Extra Work Approval](https://cpl-extra-work-approval.astarrett.workers.dev) · [Public source repository](https://github.com/AaronStarrett/cpl-extra-work-approval). The final local gate passed: 8 domain tests, 45 native Workers/D1 cases, 8 browser tests, lint, typechecks, build and source security scan. Production verification covered real protected publication, independent customer approval, stranger denial, owner recovery, matching exports, reload persistence and deletion of all synthetic records. [Deployment](docs/DEPLOYMENT.md) and [QA](docs/QA.md) distinguish the workflow-tested version from the subsequent session-cookie correction and its final release gate.
 
 ## The workflow
 
@@ -27,7 +27,7 @@ The v1 price is USD only, calculated in integer cents. Tax is an explicit owner-
 
 Use the pinned Node runtime and package lock. Install dependencies with `npm ci`; inspect `package.json` for development, lint, typecheck, unit, integration, browser, preview, and gated deployment scripts. Cloudflare Worker and D1 configuration belongs to this app only. Local and preview data must stay separate from production.
 
-Release facts are recorded in [QA](docs/QA.md) and [Deployment](docs/DEPLOYMENT.md). Those documents distinguish checks actually executed from required checks and blocked infrastructure. Do not infer a live release from this README or from a configured resource name.
+Release facts are recorded in [QA](docs/QA.md) and [Deployment](docs/DEPLOYMENT.md). The owner selected gated manual CLI deployment; native Git-triggered deployment is not configured. Deployment and completed production workflow verification are recorded separately.
 
 ## Documentation
 

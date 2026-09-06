@@ -2,29 +2,76 @@
   "checkedAt": "2026-09-06",
   "portfolio": {
     "repositoryUrl": "https://github.com/AaronStarrett/cpl-portfolio",
-    "verifiedRemoteMainCommit": "6978d7fa1cfcbd52b1b85b54256f7feea979f6ae",
+    "verifiedRemoteMainCommit": "575d6e373cc9d0e7544e84b750099f17c1e18881",
     "sourceVerification": "Read-only git ls-remote and source reads pinned to the resolved main commit",
     "filesRead": [
       "docs/MAINTENANCE.md",
       "src/data/schema.ts",
       "src/data/stories.ts",
+      "src/data/paths.ts",
       "src/pages/projects/[slug].astro",
       "src/components/ProjectCard.astro",
       "package.json"
     ],
     "integration": "NOT INTEGRATED - shared portfolio read-only by owner instruction",
     "stagingEntryValidation": "PASS - strict projectSchema from verified remote commit parsed staging entry with no issues",
-    "storyTypeValidation": "PASS - TypeScript checked three handoff story configurations against Story and Scene types from verified remote commit in ignored local copy"
+    "storyTypeValidation": "PASS - TypeScript checked three handoff story configurations against Story and Scene types from verified remote commit in ignored local copy",
+    "launchActionValidation": "PASS - current primaryAction resolves local walkthrough and current productAction resolves distinct verified application URL; instructions reuse existing card/detail launch and gallery support"
   },
   "application": {
-    "deployedUrl": null,
+    "deployedUrl": "https://cpl-extra-work-approval.astarrett.workers.dev",
     "repositoryUrl": "https://github.com/AaronStarrett/cpl-extra-work-approval",
     "repositoryPublicVerified": true,
-    "deployedCommit": null,
-    "workerVersion": null,
+    "deployedCommit": "9c5ad12498edbf23939c0b38b987a9a708f55d19",
+    "workerVersion": "4fea902a-cbf5-4534-b2a5-3f5d47b423d0",
+    "deploymentCreatedAt": "2026-09-06T17:39:08.994Z",
+    "trafficPercent": 100,
+    "remoteMigrations": { "0001": "PASS", "0002": "PASS" },
     "gitTriggeredBuild": "NOT CONFIGURED - owner selected scoped manual CLI deployment",
-    "twoBrowserSmoke": "LOCAL PASS - 8 browser tests against actual Workers/D1, including independent owner/customer/stranger contexts; DEPLOYED NOT RUN",
-    "status": "Locally verified. Public repo created. Owner authorized scoped manual CLI deployment; actual upload and deployed smoke results pending."
+    "twoBrowserSmoke": "PASS - 8 local browser tests and deployed approval verification using independent original owner, customer, stranger and recovered-owner contexts",
+    "status": "Deployed through owner-selected gated manual CLI upload; synthetic production workflow verified on preceding Worker; final session-cookie correction passed the full gate and nine deployed public checks. Ready for separate portfolio integration.",
+    "productionSmoke": {
+      "result": "PASS",
+      "testedSourceCommit": "ded201fd190df2930e98055638e36ebc70cc48f9",
+      "testedWorkerVersion": "15196e5c-d930-4072-ad13-66d07e410563",
+      "independentContexts": 4,
+      "realProtectionConfigured": "PASS",
+      "blankStartWithoutWorkspace": "PASS",
+      "ownerProtectedSavePublishAndCopy": "PASS",
+      "customerAndStrangerChecksPassed": 13,
+      "recoveredOwnerChecksPassed": 12,
+      "productionApprovalAndExport": "PASS - matching owner/customer UI exports, scoped database readbacks and reload persistence",
+      "recordedResponse": {
+        "action": "approved",
+        "versionNumber": 1,
+        "totalCents": 35000,
+        "contentHash": "e138ba1d8ed7a3d2cdca52c4351af95e6b24a055694c45d0e49d28a05bc2d3e6",
+        "decidedAtUtc": "2026-09-06T17:23:59.330Z"
+      },
+      "cleanup": "PASS - owner UI deletion; read-only remote D1 verification found zero workspaces, requests, versions, decisions, owner sessions and review sessions",
+      "method": "Interactive owner with real Turnstile plus fresh independent customer, stranger and recovered-owner contexts; no protection bypass, mocks, sitekey override or imported owner cookies",
+      "originalAutomatedAttempt": "BLOCKED at first-save Turnstile before creating a workspace; later interactive protection and independent contexts completed the workflow"
+    },
+    "finalPublicChecks": {
+      "result": "PASS",
+      "checksPassed": 9,
+      "finishedAt": "2026-09-06T17:40:09.285Z",
+      "method": "Four read-only native fetch responses, no imported browser cookies or persistent mutations",
+      "coverage": "Blank homepage, configured real protection, unauthorized session denial, invalid-owner-cookie clearing without owner payload, privacy/security headers"
+    },
+    "temporaryDeploymentCredentials": "REMOVED - temporary scoped deployment token deleted with provider UI readback; local credential files and transient raw values cleared. Worker Turnstile secret remains configured and hidden. Future manual releases require a fresh scoped credential.",
+    "localVerification": {
+      "combinedFinalGate": "PASS - lint, both typechecks, 8 unit, 45 native, 8 browser, production build and public source security scan",
+      "browserPassed": 8,
+      "browserDurationSeconds": 39.1,
+      "postGateMigrationSyntaxNativePassed": 42,
+      "nativeTotalCases": 45,
+      "domainPassed": 8,
+      "nativeFullRunPassed": 45,
+      "nativeDurationSeconds": 28.13,
+      "publicSourceFilesScanned": 83,
+      "exactCredentialValuesAbsentFromGitPatchHistory": "PASS - release owner verified"
+    }
   },
   "captures": [
     {
@@ -92,5 +139,5 @@
     }
   ],
   "stagingEntry": "staging/project-entry.json",
-  "releaseReady": false
+  "releaseReady": true
 }

@@ -10,15 +10,15 @@
   ],
   "featuredOrder": 6,
   "platform": "GitHub App",
-  "maturity": "Locally verified application · deployment pending",
+  "maturity": "Deployed · synthetic workflow verified",
   "presentation": "animated-story",
   "story": "extra-work-approval",
   "problem": "A customer's while-you-are-here request can leave extra scope, added cost and timing scattered across a conversation before either person has a clear record.",
   "contribution": "Aaron defined a narrow contractor-to-customer workflow and directed the product's private access boundary, immutable versions, response clarity and distinctive work-order notebook design.",
   "solution": "The contractor prepares one change request with scope, price and declared timing, publishes a private review link, and keeps the customer's response connected to that exact version.",
   "outcomes": [
-    "A fresh synthetic request passed the real local composer, private-link publication, independent customer approval, owner refresh and exact-version export workflow.",
-    "Independent declined and changes-requested flows persisted their own final outcomes without approval."
+    "A fictional $350 side-gate request passed deployed protected publication, independent customer approval, owner recovery, matching exports and reload persistence; the synthetic workspace was then deleted.",
+    "Separate local Workers/D1 tests verified declined and changes-requested outcomes without granting approval."
   ],
   "showEvidenceSection": false,
   "technologies": [
@@ -72,10 +72,11 @@
       "caption": "Synthetic local Workers/D1 verification: a requested change is recorded; a revised version needs a fresh decision."
     }
   ],
-  "access": "unverified",
+  "access": "public",
   "launchMode": "new-tab",
   "embedAllowed": false,
   "verificationDate": "2026-09-06",
   "repositoryUrl": "https://github.com/AaronStarrett/cpl-extra-work-approval",
-  "repositoryPublic": true
+  "repositoryPublic": true,
+  "deployedUrl": "https://cpl-extra-work-approval.astarrett.workers.dev"
 }

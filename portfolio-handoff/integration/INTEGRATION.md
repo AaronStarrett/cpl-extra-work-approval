@@ -1,6 +1,6 @@
 # Focused integration against the verified portfolio baseline
 
-Baseline: `6978d7fa1cfcbd52b1b85b54256f7feea979f6ae`. These are **instructions, not an automatically applied patch**; the shared repository is read-only in the current run. Rebase the edits on current main and preserve concurrent additions.
+Baseline: `575d6e373cc9d0e7544e84b750099f17c1e18881`, refreshed read-only on 2026-09-06. These are **instructions, not an automatically applied patch**; the shared repository is read-only in the current run. Rebase the edits on current main and preserve concurrent additions.
 
 ## 1. Register standard story configurations
 
@@ -38,40 +38,17 @@ Keep existing dedicated renderers unchanged. The existing player owns progress, 
 
 ## 3. Keep Watch walkthrough and Open Extra Work Approval separate
 
-The current `primaryAction()` already gives an `animated-story` entry a local walkthrough link, even when `deployedUrl` is present. Preserve that behavior and keep `deployedUrl` distinct from `repositoryUrl`.
+The refreshed baseline already implements both actions. `primaryAction()` gives this `animated-story` entry `/projects/extra-work-approval/#walkthrough`; `productAction()` gives it **Open Extra Work Approval** at its distinct verified `deployedUrl`. Both the project card and detail page already render the product action in a new tab with `rel="noopener noreferrer"`. The source repository remains a separate link.
 
-In `src/pages/projects/[slug].astro`, broaden **only the first external-project section condition** from `p.presentation === "external-live-app"` to:
+Reuse that shared behavior. No schema, project-card or launch-section edit is needed. In particular, do not apply the older handoff's extra anchor or broaden the external-only project section: either would duplicate the product action in this baseline. Keep embedding disabled and pass no fictional data, example parameters or capabilities to the application URL.
 
-```ts
-p.presentation === "external-live-app" ||
-  (p.slug === "extra-work-approval" && p.deployedUrl && p.access === "public")
-```
-
-Use a product-specific button label inside that section:
-
-```astro
-{p.slug === "extra-work-approval" ? "Open Extra Work Approval" : action.label} ↗
-```
-
-The URL stays `p.deployedUrl`, `target="_blank"` and `rel="noopener noreferrer"`. Do not change the separate embed condition or enable framing. Do not label the live-product button `Watch walkthrough` merely because `action.label` describes the animated primary action.
-
-In `src/components/ProjectCard.astro`, add an extra anchor beside the existing primary action/case-study actions only when the same Extra Work Approval slug has a verified public `deployedUrl`:
-
-```astro
-{p.slug === "extra-work-approval" && p.deployedUrl && p.access === "public" && (
-  <a href={p.deployedUrl} target="_blank" rel="noopener noreferrer">
-    Open Extra Work Approval ↗
-  </a>
-)}
-```
-
-This uses existing schema fields and does not change another project's launch behavior. The staged entry intentionally lacks `deployedUrl` while deployment is pending; do not insert an invented address just to render a button.
+The staged entry contains the verified application origin `https://cpl-extra-work-approval.astarrett.workers.dev`. In the integrated build, verify the local walkthrough, separate product button and separate source link resolve to their intended destinations.
 
 ## 4. Screenshot copy must describe its source accurately
 
-The current detail page assumes animated stories use original workflow diagrams. For this slug only, change its gallery eyebrow to **“FICTIONAL EXAMPLE IN THE APPLICATION”** and its explanatory paragraph to **“Original application captures using a fictional fencing request. Captions distinguish local verification from deployed verification; no real customer data or active links are shown.”** Retain the existing wording for other projects.
+The refreshed detail page already labels an animated entry with a deployed URL as **THE APPLICATION**, and explains that its screenshots use fictional data and that captions provide context. Reuse this wording; no gallery conditional edit is needed.
 
-Populate screenshots only after assets are cleared. Local UI captures must not inherit copy saying they were captured from the deployed application. Branch configuration is illustrative playback; a screenshot of an actual synthetic D1 decision may support that specific test only.
+Copy the cleared original assets and preserve their explicit local/synthetic captions. These images were captured from local Workers/D1, even though the application is now deployed. Branch configuration is illustrative playback; a screenshot of an actual synthetic D1 decision supports that specific test only.
 
 ## 5. Validation and public review
 
