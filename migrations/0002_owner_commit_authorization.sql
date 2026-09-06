@@ -7,10 +7,10 @@ CREATE TABLE owner_mutation_guards (
 );
 
 CREATE TRIGGER owner_mutation_authorization BEFORE INSERT ON owner_mutation_guards BEGIN
-  SELECT CASE WHEN NOT EXISTS (
+  SELECT (CASE WHEN NOT EXISTS (
     SELECT 1 FROM owner_sessions s JOIN workspaces w ON w.id=s.workspace_id
     WHERE s.token_hash=NEW.session_hash AND s.workspace_id=NEW.workspace_id
       AND s.expires_at>strftime('%Y-%m-%dT%H:%M:%fZ','now')
       AND w.expires_at>strftime('%Y-%m-%dT%H:%M:%fZ','now')
-  ) THEN RAISE(ABORT,'owner_session_invalid') END;
+  ) THEN RAISE(ABORT,'owner_session_invalid') END);
 END;

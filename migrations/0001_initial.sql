@@ -82,13 +82,15 @@ CREATE INDEX events_request ON events(request_id,id);
 CREATE TABLE rate_limits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, reset_at TEXT NOT NULL);
 CREATE INDEX rate_limits_expiry ON rate_limits(reset_at);
 
+-- Parenthesize CASE so the remote D1 parser does not mistake its END for
+-- the trigger END (cloudflare/workers-sdk issue 4727).
 CREATE TRIGGER publish_precondition BEFORE INSERT ON versions BEGIN
-  SELECT CASE WHEN NOT EXISTS (
+  SELECT (CASE WHEN NOT EXISTS (
     SELECT 1 FROM requests r WHERE r.id=NEW.request_id AND r.revision=NEW.expected_revision
       AND r.status!='approved' AND r.retain_until>strftime('%Y-%m-%dT%H:%M:%fZ','now')
       AND NEW.version_number=r.current_version+1
       AND NEW.expires_at<=r.retain_until AND NEW.expires_at>strftime('%Y-%m-%dT%H:%M:%fZ','now')
-  ) THEN RAISE(ABORT,'stale_publication') END;
+  ) THEN RAISE(ABORT,'stale_publication') END);
 END;
 CREATE TRIGGER publish_commit AFTER INSERT ON versions BEGIN
   UPDATE versions SET status='superseded',access_revoked=1 WHERE request_id=NEW.request_id AND id!=NEW.id AND status='awaiting';
@@ -102,7 +104,7 @@ CREATE TRIGGER immutable_decision BEFORE UPDATE ON decisions BEGIN
   SELECT RAISE(ABORT,'immutable_decision');
 END;
 CREATE TRIGGER decision_precondition BEFORE INSERT ON decisions BEGIN
-  SELECT CASE WHEN NOT EXISTS (
+  SELECT (CASE WHEN NOT EXISTS (
     SELECT 1 FROM versions v JOIN requests r ON r.id=v.request_id
     WHERE v.id=NEW.version_id AND v.status='awaiting' AND v.access_revoked=0
       AND v.token_hash=NEW.authorized_capability_hash
@@ -110,7 +112,7 @@ CREATE TRIGGER decision_precondition BEFORE INSERT ON decisions BEGIN
       AND v.expires_at>strftime('%Y-%m-%dT%H:%M:%fZ','now')
       AND r.retain_until>strftime('%Y-%m-%dT%H:%M:%fZ','now')
       AND r.current_version_id=v.id AND r.status='awaiting'
-  ) THEN RAISE(ABORT,'stale_decision') END;
+  ) THEN RAISE(ABORT,'stale_decision') END);
 END;
 CREATE TRIGGER decision_commit AFTER INSERT ON decisions BEGIN
   UPDATE versions SET status=NEW.action WHERE id=NEW.version_id;
