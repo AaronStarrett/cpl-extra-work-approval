@@ -13,7 +13,7 @@
     "test": "vitest run --config vitest.config.ts",
     "test:unit": "npm test",
     "test:integration": "vitest run --config vitest.integration.config.ts",
-    "test:browser": "playwright test",
+    "test:browser": "node scripts/browser-tests.mjs",
     "build": "vite build",
     "preview": "wrangler dev --env local --ip 127.0.0.1 --port 4173",
     "db:local": "wrangler d1 migrations apply DB --local --env local",
